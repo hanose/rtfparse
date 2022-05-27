@@ -278,7 +278,7 @@ class RTFToHTMLSoup(Renderer):
             if len(self.cell_width_queue) > 0:
                 cell_width = abs(round(self.cell_width_queue.popleft(), 3))
                 self.cell_coordinates.popleft()
-                _width = f' style="min-width: {cell_width}in; max-width: {cell_width}in; {border_width_opt}" '
+                _width = f'min-width: {cell_width}in; max-width: {cell_width}in; {border_width_opt}'
 
             self.current_cell['style'] += _width
         else:
