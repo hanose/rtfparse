@@ -294,7 +294,7 @@ class RTFToHTMLSoup(Renderer):
     @staticmethod
     def render_symbol(item: entities.Control_Symbol) -> None:
         # Obsolete formula character used by Word 5.1 for Macintosh
-        symbols_table = {"|": '', "~": "\u00a0", '-': '', "_": "\u2011", ":": '', }
+        symbols_table = {"|": '', "~": "\u00a0", '-': '', "_": "\u2011", ":": ''}
 
         if item.text in symbols_table:
             return symbols_table.get(item.text)
