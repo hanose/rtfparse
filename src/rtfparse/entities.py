@@ -97,7 +97,7 @@ class Control_Word(Entity):
             if self.control_name == "bin":
                self.bindata = file.read(utils.twos_complement(self.parameter, INTEGER_MAGNITUDE))
         else:
-            logger.warning(f"Missing Control Word")
+            logger.debug(f"Missing Control Word")
             file.seek(self.start_position)
 
     def __repr__(self) -> str:
@@ -185,7 +185,7 @@ class Group(Entity):
                 file.seek(self.start_position + GROUP_START - IGNORABLE)
                 logger.debug(f"Returned to position {file.tell()}")
         else:
-            logger.warning(utils.warn(f"Expected a group but found no group start. Creating unknown group"))
+            logger.debug(utils.warn(f"Expected a group but found no group start. Creating unknown group"))
             file.seek(self.start_position)
         while True:
             probed = self.probe(re_patterns.probe, file)
